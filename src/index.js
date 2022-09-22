@@ -13,7 +13,7 @@ const API_VERSION = '1.0.0';
 const app = express();
 
 // Health check endpoint
-app.get(BASE_PATH+'/health', async (req, res) => {
+app.get('/health', async (req, res) => {
   res.type('json');
   res.send(JSON.stringify({
     "api": API_VERSION,
