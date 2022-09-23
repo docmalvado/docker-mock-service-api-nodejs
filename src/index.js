@@ -1,7 +1,6 @@
 'use strict';
 
 const express = require('express');
-const { networkInterfaces } = require('os');
 
 // Constants
 const HOST = '0.0.0.0';
@@ -24,23 +23,10 @@ app.get('/health', async (req, res) => {
 // Business APIs
 // GET
 app.get(BASE_PATH+'/mock', async (req, res) => {
-  let nets = networkInterfaces();
-  let interfaces = Object.create(null); // Or just '{}', an empty object
-  for (let name of Object.keys(nets)) {
-    for (let net of nets[name]) {
-      // Skip over non-IPv4 and internal (i.e. 127.0.0.1) addresses
-      if (net.family === 'IPv4' && !net.internal) {
-        if (!interfaces[name]) {
-          interfaces[name] = [];
-        }
-        interfaces[name].push(net.address);
-      }
-    }network
-  }
   res.type('json');
   res.send(JSON.stringify({
     "api": API_VERSION,
-    "output": interfaces
+    "output": "GET Success!"
   }));
 });
 
