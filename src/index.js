@@ -6,7 +6,7 @@ const express = require('express');
 const HOST = '0.0.0.0';
 const PORT = 8080;
 const BASE_PATH= '/nodejs';
-const API_VERSION = '1.0.2';
+const API_VERSION = '1.0.3';
 
 // App
 const app = express();
